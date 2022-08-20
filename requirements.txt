@@ -58,5 +58,3 @@ python-arq
 telegram
 gpytranslate
 yt_dlp
-Footer
-© 2022 GitHub, Inc.
