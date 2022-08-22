@@ -34,6 +34,7 @@
 - [Joey] : Dev
 - [SHIKARI](https://github.com/ShikariBaaZ): Dev
 - [Prisha] : Promoter
-- [HARPREET](https://t.me/ITS_HARPREET_KING): Dev
+- [HARPREET](https://telegram.me/ITS_HARPREET_KING) : Dev
+
 
 ━━━━━━━━━━━━━━━━━━━━
