@@ -13,6 +13,7 @@
 ## Deploy Your Own LeGenD Robot 💜(Deploy To Heroku)💜
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ShikariBaaZ/LegendRobot)
+[![Deploy To Railway](https://railway.app/button.svg)](https://railway.app)
 
 ━━━━━━━━━━━━━━━━━━━━
 
