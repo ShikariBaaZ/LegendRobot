@@ -1,6 +1,7 @@
 import threading
 
 from sqlalchemy import Column, String
+
 from LegendRobot.modules.sql import BASE, SESSION
 
 

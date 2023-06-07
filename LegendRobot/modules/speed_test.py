@@ -1,9 +1,10 @@
 import speedtest
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
+from telegram.ext import CallbackContext, CallbackQueryHandler, run_async
+
 from LegendRobot import DEV_USERS, dispatcher
 from LegendRobot.modules.disable import DisableAbleCommandHandler
 from LegendRobot.modules.helper_funcs.chat_status import dev_plus
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
-from telegram.ext import CallbackContext, CallbackQueryHandler, run_async
 
 
 def convert(speed):

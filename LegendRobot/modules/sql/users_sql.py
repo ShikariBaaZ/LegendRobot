@@ -1,16 +1,17 @@
 import threading
 
-from LegendRobot import dispatcher
-from LegendRobot.modules.sql import BASE, SESSION
 from sqlalchemy import (
+    BigInteger,
     Column,
     ForeignKey,
-    BigInteger,
     String,
     UnicodeText,
     UniqueConstraint,
     func,
 )
+
+from LegendRobot import dispatcher
+from LegendRobot.modules.sql import BASE, SESSION
 
 
 class Users(BASE):

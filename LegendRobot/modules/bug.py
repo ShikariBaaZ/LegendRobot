@@ -1,19 +1,12 @@
 from datetime import datetime
 
 from pyrogram import filters
-from pyrogram.types import (
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    CallbackQuery,
-    Message,
-)
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
+from LegendRobot import OWNER_ID as owner_id
+from LegendRobot import OWNER_USERNAME as owner_usn
+from LegendRobot import SUPPORT_CHAT as log
 from LegendRobot import pbot as Client
-from LegendRobot import (
-    OWNER_ID as owner_id,
-    OWNER_USERNAME as owner_usn,
-    SUPPORT_CHAT as log,
-)
 from LegendRobot.utils.errors import capture_err
 
 

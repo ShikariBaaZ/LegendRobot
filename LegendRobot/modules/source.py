@@ -1,11 +1,13 @@
 from platform import python_version as y
-from telegram import __version__ as o
-from pyrogram import __version__ as z
-from telethon import __version__ as s
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from pyrogram import filters
-from LegendRobot import pbot as client, dispatcher, OWNER_USERNAME
 
+from pyrogram import __version__ as z
+from pyrogram import filters
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import __version__ as o
+from telethon import __version__ as s
+
+from LegendRobot import OWNER_USERNAME, dispatcher
+from LegendRobot import pbot as client
 
 Shikari = "https://telegra.ph/file/66f4cbd1978ddd57cd034.jpg"
 

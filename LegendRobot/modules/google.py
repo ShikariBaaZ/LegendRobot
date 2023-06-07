@@ -1,28 +1,18 @@
-from bs4 import BeautifulSoup
-import urllib
-from LegendRobot import telethn as tbot
 import glob
 import io
 import os
 import re
-import aiohttp
+import urllib
 import urllib.request
-from urllib.parse import urlencode
+
+import bs4
 import requests
+from bing_image_downloader import downloader
 from bs4 import BeautifulSoup
 from PIL import Image
 from search_engine_parser import GoogleSearch
 
-import bs4
-import html2text
-from bing_image_downloader import downloader
-from telethon import *
-from telethon.tl import functions
-from telethon.tl import types
-from telethon.tl.types import *
-
-from LegendRobot import *
-
+from LegendRobot import telethn as tbot
 from LegendRobot.events import register
 
 opener = urllib.request.build_opener()
@@ -187,7 +177,6 @@ async def ParseSauce(googleurl):
 
 
 async def scam(results, lim):
-
     single = opener.open(results["similar_images"]).read()
     decoded = single.decode("utf-8")
 
@@ -209,7 +198,6 @@ async def scam(results, lim):
 
 @register(pattern="^/app (.*)")
 async def apk(e):
-
     try:
         app_name = e.pattern_match.group(1)
         remove_space = app_name.split(" ")

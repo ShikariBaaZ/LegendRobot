@@ -1,4 +1,5 @@
-from sqlalchemy import Boolean, Column, String, UnicodeText
+from sqlalchemy import Column, String
+
 from LegendRobot.modules.sql import BASE, SESSION
 
 

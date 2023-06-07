@@ -1,8 +1,9 @@
 import threading
 
-from LegendRobot.modules.sql import BASE, SESSION
-from sqlalchemy import Boolean, Column, BigInteger, String, UnicodeText, distinct, func
+from sqlalchemy import BigInteger, Boolean, Column, String, UnicodeText, distinct, func
 from sqlalchemy.dialects import postgresql
+
+from LegendRobot.modules.sql import BASE, SESSION
 
 
 class Warns(BASE):

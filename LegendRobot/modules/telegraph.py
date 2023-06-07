@@ -1,12 +1,11 @@
 import os
-from PIL import Image
 from datetime import datetime
 
-from telethon import events
-from LegendRobot.events import register
-from LegendRobot import telethn as tbot
-from telegraph import Telegraph, upload_file, exceptions
+from PIL import Image
+from telegraph import Telegraph, exceptions, upload_file
 
+from LegendRobot import telethn as tbot
+from LegendRobot.events import register
 
 Anonymous = "Legend"
 TMP_DOWNLOAD_DIRECTORY = "./"

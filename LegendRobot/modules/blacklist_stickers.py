@@ -1,5 +1,10 @@
 import html
-from typing import Optional
+
+from telegram import ChatPermissions, ParseMode, Update
+from telegram.error import BadRequest
+from telegram.ext import CallbackContext, CommandHandler, Filters, MessageHandler
+from telegram.ext.dispatcher import run_async
+from telegram.utils.helpers import mention_html, mention_markdown
 
 import LegendRobot.modules.sql.blsticker_sql as sql
 from LegendRobot import LOGGER, dispatcher
@@ -9,14 +14,8 @@ from LegendRobot.modules.helper_funcs.alternate import send_message
 from LegendRobot.modules.helper_funcs.chat_status import user_admin, user_not_admin
 from LegendRobot.modules.helper_funcs.misc import split_message
 from LegendRobot.modules.helper_funcs.string_handling import extract_time
-
 from LegendRobot.modules.log_channel import loggable
 from LegendRobot.modules.warns import warn
-from telegram import Chat, Message, ParseMode, Update, User, ChatPermissions
-from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, Filters, MessageHandler
-from telegram.ext.dispatcher import run_async
-from telegram.utils.helpers import mention_html, mention_markdown
 
 
 @run_async

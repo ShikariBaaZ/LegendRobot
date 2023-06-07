@@ -1,5 +1,5 @@
-from asyncio import gather
 from io import BytesIO
+
 from LegendRobot import aiohttpsession as aiosession
 
 

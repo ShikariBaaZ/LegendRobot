@@ -1,21 +1,13 @@
-import os
-import io
-import requests
-import shutil
-import random
-import re
 import glob
-import time
+import io
+import os
+import random
 
-from io import BytesIO
-from requests import get
-from telethon.tl.types import InputMessagesFilterPhotos
-
-from LegendRobot import OWNER_ID, SUPPORT_CHAT
-from LegendRobot.events import register
-from LegendRobot import telethn
+import requests
 from PIL import Image, ImageDraw, ImageFont
 
+from LegendRobot import OWNER_ID, SUPPORT_CHAT, telethn
+from LegendRobot.events import register
 
 LOGO_LINKS = [
     "https://telegra.ph/file/d1838efdafce9fe611d0c.jpg",

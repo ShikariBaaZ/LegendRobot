@@ -15,15 +15,14 @@ from telegram.ext import (
 from telegram.utils.helpers import mention_html
 
 import LegendRobot.modules.sql.global_bans_sql as sql
-from LegendRobot.modules.sql.users_sql import get_user_com_chats
 from LegendRobot import (
+    DEMONS,
     DEV_USERS,
+    DRAGONS,
     EVENT_LOGS,
     OWNER_ID,
     STRICT_GBAN,
-    DRAGONS,
     SUPPORT_CHAT,
-    DEMONS,
     TIGERS,
     WOLVES,
     dispatcher,
@@ -38,6 +37,7 @@ from LegendRobot.modules.helper_funcs.extraction import (
     extract_user_and_text,
 )
 from LegendRobot.modules.helper_funcs.misc import send_to_list
+from LegendRobot.modules.sql.users_sql import get_user_com_chats
 
 GBAN_ENFORCE_GROUP = 6
 
@@ -135,7 +135,6 @@ def gban(update: Update, context: CallbackContext):
         return
 
     if sql.is_user_gbanned(user_id):
-
         if not reason:
             message.reply_text(
                 "This user is already gbanned; I'd change the reason, but you haven't given me one..."
@@ -412,7 +411,6 @@ def gbanlist(update: Update, context: CallbackContext):
 
 
 def check_and_ban(update, user_id, should_message=True):
-
     chat = update.effective_chat  # type: Optional[Chat]
 
     if sql.is_user_gbanned(user_id):

@@ -1,19 +1,13 @@
-from telethon import events, Button, custom, version
-from telethon.tl.types import ChannelParticipantsAdmins
 import asyncio
-import os, re
-import requests
 import datetime
-import time
+import re
 from datetime import datetime
-import random
-from PIL import Image
-from io import BytesIO
+
+from telethon import custom, events
+
 from LegendRobot import telethn as bot
 from LegendRobot import telethn as tgbot
 from LegendRobot.events import register
-from LegendRobot import dispatcher
-
 
 edit_time = 5
 """ =======================Legend ROBOT====================== """

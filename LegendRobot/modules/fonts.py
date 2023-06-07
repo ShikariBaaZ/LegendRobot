@@ -1,7 +1,7 @@
-import os
-from LegendRobot.utils.fonts import Fonts
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
+from LegendRobot.utils.fonts import Fonts
 
 
 @Client.on_message(filters.command(["font", "fonts"]))

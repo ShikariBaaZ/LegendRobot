@@ -1,27 +1,28 @@
-import json, time, os
+import json
+import os
+import time
 from io import BytesIO
 
-from telegram import ParseMode, Message
+from telegram import ParseMode
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler, run_async
 
-import LegendRobot.modules.sql.notes_sql as sql
-from LegendRobot import dispatcher, LOGGER, OWNER_ID, JOIN_LOGGER, SUPPORT_CHAT
-from LegendRobot.__main__ import DATA_IMPORT
-from LegendRobot.modules.helper_funcs.chat_status import user_admin
-from LegendRobot.modules.helper_funcs.alternate import typing_action
-
-# from LegendRobot.modules.rules import get_rules
-import LegendRobot.modules.sql.rules_sql as rulessql
-
 # from LegendRobot.modules.sql import warns_sql as warnssql
 import LegendRobot.modules.sql.blacklist_sql as blacklistsql
-from LegendRobot.modules.sql import disable_sql as disabledsql
 
 # from LegendRobot.modules.sql import cust_filters_sql as filtersql
 # import LegendRobot.modules.sql.welcome_sql as welcsql
 import LegendRobot.modules.sql.locks_sql as locksql
+import LegendRobot.modules.sql.notes_sql as sql
+
+# from LegendRobot.modules.rules import get_rules
+import LegendRobot.modules.sql.rules_sql as rulessql
+from LegendRobot import JOIN_LOGGER, LOGGER, OWNER_ID, SUPPORT_CHAT, dispatcher
+from LegendRobot.__main__ import DATA_IMPORT
 from LegendRobot.modules.connection import connected
+from LegendRobot.modules.helper_funcs.alternate import typing_action
+from LegendRobot.modules.helper_funcs.chat_status import user_admin
+from LegendRobot.modules.sql import disable_sql as disabledsql
 
 
 @run_async
@@ -111,7 +112,6 @@ def import_data(update, context):
         # TODO: some of that link logic
         # NOTE: consider default permissions stuff?
         if conn:
-
             text = "Backup fully restored on *{}*.".format(chat_name)
         else:
             text = "Backup fully restored"

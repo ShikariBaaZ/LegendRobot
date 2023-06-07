@@ -1,14 +1,13 @@
-import os
-import re
 import random
-from platform import python_version as kontol
-from telethon import events, Button
-from telegram import __version__ as telever
-from telethon import __version__ as tlhver
-from pyrogram import __version__ as pyrover
-from LegendRobot.events import register
-from LegendRobot import telethn as tbot, SUPPORT_CHAT, OWNER_USERNAME, dispatcher
 
+from pyrogram import __version__ as pyrover
+from telegram import __version__ as telever
+from telethon import Button
+from telethon import __version__ as tlhver
+
+from LegendRobot import OWNER_USERNAME, SUPPORT_CHAT, dispatcher
+from LegendRobot import telethn as tbot
+from LegendRobot.events import register
 
 PHOTO = [
     "https://telegra.ph/file/d7fe94d4999330896c0ef.jpg",

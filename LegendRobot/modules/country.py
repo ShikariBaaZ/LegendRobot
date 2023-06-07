@@ -1,13 +1,8 @@
 import flag
-import html, os
-
 from countryinfo import CountryInfo
-from telethon.tl.functions.photos import GetUserPhotosRequest
-from telethon.tl.functions.users import GetFullUserRequest
-from telethon.tl.types import MessageEntityMentionName
-from telethon.utils import get_input_location
 
-from LegendRobot import telethn as borg, dispatcher
+from LegendRobot import dispatcher
+from LegendRobot import telethn as borg
 from LegendRobot.events import register
 
 

@@ -1,4 +1,9 @@
-import random, html
+import html
+import random
+
+from telegram import MessageEntity, Update
+from telegram.error import BadRequest
+from telegram.ext import CallbackContext, Filters, MessageHandler, run_async
 
 from LegendRobot import dispatcher
 from LegendRobot.modules.disable import (
@@ -7,9 +12,6 @@ from LegendRobot.modules.disable import (
 )
 from LegendRobot.modules.sql import afk_sql as sql
 from LegendRobot.modules.users import get_user_id
-from telegram import MessageEntity, Update
-from telegram.error import BadRequest
-from telegram.ext import CallbackContext, Filters, MessageHandler, run_async
 
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8

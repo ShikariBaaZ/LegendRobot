@@ -6,10 +6,11 @@ import textwrap
 import traceback
 from contextlib import redirect_stdout
 
-from LegendRobot import LOGGER, dispatcher
-from LegendRobot.modules.helper_funcs.chat_status import dev_plus
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, CommandHandler, run_async
+
+from LegendRobot import LOGGER, dispatcher
+from LegendRobot.modules.helper_funcs.chat_status import dev_plus
 
 namespaces = {}
 

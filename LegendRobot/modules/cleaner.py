@@ -1,5 +1,14 @@
 import html
 
+from telegram import ParseMode, Update
+from telegram.ext import (
+    CallbackContext,
+    CommandHandler,
+    Filters,
+    MessageHandler,
+    run_async,
+)
+
 from LegendRobot import ALLOW_EXCL, CustomCommandHandler, dispatcher
 from LegendRobot.modules.disable import DisableAbleCommandHandler
 from LegendRobot.modules.helper_funcs.chat_status import (
@@ -9,14 +18,6 @@ from LegendRobot.modules.helper_funcs.chat_status import (
     user_admin,
 )
 from LegendRobot.modules.sql import cleaner_sql as sql
-from telegram import ParseMode, Update
-from telegram.ext import (
-    CallbackContext,
-    CommandHandler,
-    Filters,
-    MessageHandler,
-    run_async,
-)
 
 CMD_STARTERS = ("/", "!") if ALLOW_EXCL else "/"
 BLUE_TEXT_CLEAN_GROUP = 13
@@ -53,7 +54,6 @@ def clean_blue_text_must_click(update: Update, context: CallbackContext):
         if len(fst_word) > 1 and any(
             fst_word.startswith(start) for start in CMD_STARTERS
         ):
-
             command = fst_word[1:].split("@")
             chat = update.effective_chat
 
@@ -192,7 +192,6 @@ def remove_bluetext_ignore_global(update: Update, context: CallbackContext):
 @run_async
 @dev_plus
 def bluetext_ignore_list(update: Update, context: CallbackContext):
-
     message = update.effective_message
     chat = update.effective_chat
 

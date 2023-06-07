@@ -1,6 +1,7 @@
 import threading
 
 from sqlalchemy import Boolean, Column, UnicodeText
+
 from LegendRobot.modules.sql import BASE, SESSION
 
 
@@ -65,7 +66,6 @@ def chat_ignore_command(chat_id, ignore):
         ignored = SESSION.query(CleanerBlueTextChat).get((str(chat_id), ignore))
 
         if not ignored:
-
             if str(chat_id) not in CLEANER_CHATS:
                 CLEANER_CHATS.setdefault(
                     str(chat_id),
@@ -88,7 +88,6 @@ def chat_unignore_command(chat_id, unignore):
         unignored = SESSION.query(CleanerBlueTextChat).get((str(chat_id), unignore))
 
         if unignored:
-
             if str(chat_id) not in CLEANER_CHATS:
                 CLEANER_CHATS.setdefault(
                     str(chat_id),

@@ -1,12 +1,12 @@
-import time
 import re
+import time
 
-from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton, Update, Bot
+from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import BadRequest, Unauthorized
-from telegram.ext import CommandHandler, CallbackQueryHandler, run_async
+from telegram.ext import CallbackQueryHandler, CommandHandler, run_async
 
 import LegendRobot.modules.sql.connection_sql as sql
-from LegendRobot import dispatcher, DRAGONS, DEV_USERS
+from LegendRobot import DEV_USERS, DRAGONS, dispatcher
 from LegendRobot.modules.helper_funcs import chat_status
 from LegendRobot.modules.helper_funcs.alternate import send_message, typing_action
 
@@ -17,7 +17,6 @@ user_admin = chat_status.user_admin
 @run_async
 @typing_action
 def allow_connections(update, context) -> str:
-
     chat = update.effective_chat
     args = context.args
 
@@ -65,7 +64,6 @@ def allow_connections(update, context) -> str:
 @run_async
 @typing_action
 def connection_chat(update, context):
-
     chat = update.effective_chat
     user = update.effective_user
 
@@ -90,7 +88,6 @@ def connection_chat(update, context):
 @run_async
 @typing_action
 def connect_chat(update, context):
-
     chat = update.effective_chat
     user = update.effective_user
     args = context.args
@@ -249,7 +246,6 @@ def connect_chat(update, context):
 
 
 def disconnect_chat(update, context):
-
     if update.effective_chat.type == "private":
         disconnection_status = sql.disconnect(update.effective_message.from_user.id)
         if disconnection_status:
@@ -266,7 +262,6 @@ def connected(bot: Bot, update: Update, chat, user_id, need_admin=True):
     user = update.effective_user
 
     if chat.type == chat.PRIVATE and sql.get_connected_chat(user_id):
-
         conn_id = sql.get_connected_chat(user_id).chat_id
         getstatusadmin = bot.get_chat_member(
             conn_id, update.effective_message.from_user.id
@@ -319,7 +314,6 @@ CONN_HELP = """
 
 @run_async
 def help_connect_chat(update, context):
-
     args = context.args
 
     if update.effective_message.chat.type != "private":
@@ -331,7 +325,6 @@ def help_connect_chat(update, context):
 
 @run_async
 def connect_button(update, context):
-
     query = update.callback_query
     chat = update.effective_chat
     user = update.effective_user

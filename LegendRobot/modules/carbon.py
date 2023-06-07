@@ -1,5 +1,5 @@
-from pyrogram.types import Message
 from pyrogram import filters
+
 from LegendRobot import pbot
 from LegendRobot.utils.errors import capture_err
 from LegendRobot.utils.functions import make_carbon

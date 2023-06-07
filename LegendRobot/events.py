@@ -1,14 +1,11 @@
 import inspect
-import logging
-import sys
 import re
-
 from pathlib import Path
-from telethon import events
 
 from pymongo import MongoClient
-from LegendRobot import MONGO_DB_URI
-from LegendRobot import telethn
+from telethon import events
+
+from LegendRobot import MONGO_DB_URI, telethn
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)

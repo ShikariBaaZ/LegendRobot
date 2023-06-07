@@ -1,11 +1,11 @@
-import os
 import datetime
+import os
 
-from telethon import events
 from telegram import Update
 from telegram.ext import CallbackContext, CommandHandler, run_async
+from telethon import events
 
-from LegendRobot import telethn, dispatcher
+from LegendRobot import dispatcher, telethn
 from LegendRobot.modules.helper_funcs.chat_status import dev_plus
 
 DEBUG_MODE = False

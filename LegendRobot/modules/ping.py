@@ -6,8 +6,8 @@ from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, run_async
 
 from LegendRobot import StartTime, dispatcher
-from LegendRobot.modules.helper_funcs.chat_status import sudo_plus
 from LegendRobot.modules.disable import DisableAbleCommandHandler
+from LegendRobot.modules.helper_funcs.chat_status import sudo_plus
 
 sites_list = {
     "Telegram": "https://api.telegram.org",
@@ -49,7 +49,6 @@ def ping_func(to_ping: List[str]) -> List[str]:
     ping_result = []
 
     for each_ping in to_ping:
-
         start_time = time.time()
         site_to_ping = sites_list[each_ping]
         r = requests.get(site_to_ping)

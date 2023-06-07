@@ -2,14 +2,15 @@ import html
 import random
 import time
 
+from telegram import ChatPermissions, ParseMode, Update
+from telegram.error import BadRequest
+from telegram.ext import CallbackContext, run_async
+
 import LegendRobot.modules.fun_strings as fun_strings
 from LegendRobot import dispatcher
 from LegendRobot.modules.disable import DisableAbleCommandHandler
 from LegendRobot.modules.helper_funcs.chat_status import is_user_admin
 from LegendRobot.modules.helper_funcs.extraction import extract_user
-from telegram import ChatPermissions, ParseMode, Update
-from telegram.error import BadRequest
-from telegram.ext import CallbackContext, run_async
 
 GIF_ID = "CgACAgQAAx0CSVUvGgAC7KpfWxMrgGyQs-GUUJgt-TSO8cOIDgACaAgAAlZD0VHT3Zynpr5nGxsE"
 
@@ -88,7 +89,6 @@ def slap(update: Update, context: CallbackContext):
         return
 
     if user_id:
-
         slapped_user = bot.get_chat(user_id)
         user1 = curr_user
         user2 = html.escape(slapped_user.first_name)

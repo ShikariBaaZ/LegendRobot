@@ -14,7 +14,6 @@ from LegendRobot import DRAGONS as SUDO_USERS
 from LegendRobot import pbot
 from LegendRobot.modules.sql import forceSubscribe_sql as sql
 
-
 logging.basicConfig(level=logging.INFO)
 
 static_data_filter = filters.create(

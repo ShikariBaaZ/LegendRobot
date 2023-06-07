@@ -1,28 +1,26 @@
 import html
 
-from telegram import Message, Chat, ParseMode, MessageEntity
-from telegram import TelegramError, ChatPermissions
+from alphabet_detector import AlphabetDetector
+from telegram import ChatPermissions, MessageEntity, ParseMode, TelegramError
 from telegram.error import BadRequest
-from telegram.ext import CommandHandler, MessageHandler, Filters
+from telegram.ext import CommandHandler, Filters, MessageHandler
 from telegram.ext.dispatcher import run_async
 from telegram.utils.helpers import mention_html
 
-from alphabet_detector import AlphabetDetector
-
 import LegendRobot.modules.sql.locks_sql as sql
-from LegendRobot import dispatcher, DRAGONS, LOGGER
+from LegendRobot import DRAGONS, LOGGER, dispatcher
+from LegendRobot.modules.connection import connected
 from LegendRobot.modules.disable import DisableAbleCommandHandler
+from LegendRobot.modules.helper_funcs.alternate import send_message, typing_action
 from LegendRobot.modules.helper_funcs.chat_status import (
     can_delete,
-    is_user_admin,
-    user_not_admin,
     is_bot_admin,
+    is_user_admin,
     user_admin,
+    user_not_admin,
 )
 from LegendRobot.modules.log_channel import loggable
-from LegendRobot.modules.connection import connected
 from LegendRobot.modules.sql.approve_sql import is_approved
-from LegendRobot.modules.helper_funcs.alternate import send_message, typing_action
 
 ad = AlphabetDetector()
 

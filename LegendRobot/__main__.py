@@ -1,39 +1,12 @@
 import importlib
-import time
 import re
+import time
+from platform import python_version as y
 from sys import argv
-from typing import Optional
 
-from LegendRobot import (
-    BOT_NAME,
-    BOT_USERNAME,
-    ALLOW_EXCL,
-    OWNER_USERNAME,
-    CERT_PATH,
-    DONATION_LINK,
-    LOGGER,
-    OWNER_ID,
-    PORT,
-    SUPPORT_CHAT,
-    TOKEN,
-    URL,
-    WEBHOOK,
-    SUPPORT_CHAT,
-    dispatcher,
-    StartTime,
-    START_IMG,
-    telethn,
-    pbot,
-    updater,
-)
-
-# needed to dynamically load modules
-# NOTE: Module order is not guaranteed, specify that in the config file!
-from LegendRobot.modules import ALL_MODULES
-import LegendRobot.modules.sql.users_sql as sql
-from LegendRobot.modules.helper_funcs.chat_status import is_user_admin
-from LegendRobot.modules.helper_funcs.misc import paginate_modules
+from pyrogram import __version__ as pyrover
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
+from telegram import __version__ as telever
 from telegram.error import (
     BadRequest,
     ChatMigrated,
@@ -50,11 +23,36 @@ from telegram.ext import (
     MessageHandler,
 )
 from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
-from telegram import __version__ as telever
-from telethon import __version__ as tlhver
-from pyrogram import __version__ as pyrover
-from platform import python_version as y
 from telegram.utils.helpers import escape_markdown
+from telethon import __version__ as tlhver
+
+import LegendRobot.modules.sql.users_sql as sql
+from LegendRobot import (
+    BOT_NAME,
+    BOT_USERNAME,
+    CERT_PATH,
+    DONATION_LINK,
+    LOGGER,
+    OWNER_ID,
+    OWNER_USERNAME,
+    PORT,
+    START_IMG,
+    SUPPORT_CHAT,
+    TOKEN,
+    URL,
+    WEBHOOK,
+    StartTime,
+    dispatcher,
+    pbot,
+    telethn,
+    updater,
+)
+
+# needed to dynamically load modules
+# NOTE: Module order is not guaranteed, specify that in the config file!
+from LegendRobot.modules import ALL_MODULES
+from LegendRobot.modules.helper_funcs.chat_status import is_user_admin
+from LegendRobot.modules.helper_funcs.misc import paginate_modules
 
 
 def get_readable_time(seconds: int) -> str:
@@ -777,7 +775,6 @@ def migrate_chats(update: Update, context: CallbackContext):
 
 
 def main():
-
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.sendAnimation(

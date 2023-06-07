@@ -1,12 +1,11 @@
 import os
-import asyncio
-import requests
-import aiohttp
-import yt_dlp
 
+import requests
+import yt_dlp
 from pyrogram import filters
 from youtube_search import YoutubeSearch
-from LegendRobot import pbot, SUPPORT_CHAT
+
+from LegendRobot import SUPPORT_CHAT, pbot
 
 
 def time_to_seconds(time):
@@ -16,7 +15,6 @@ def time_to_seconds(time):
 
 @pbot.on_message(filters.command(["song", "music"]))
 def song(client, message):
-
     message.delete()
     user_id = message.from_user.id
     user_name = message.from_user.first_name

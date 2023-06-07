@@ -1,8 +1,10 @@
 import os
+
 import cv2
 from PIL import Image
-from LegendRobot.events import register
+
 from LegendRobot import telethn as tbot
+from LegendRobot.events import register
 
 
 @register(pattern="^/tiny ?(.*)")

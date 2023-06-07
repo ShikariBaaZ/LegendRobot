@@ -2,34 +2,9 @@ import html
 import random
 import re
 import time
-from functools import partial
 from contextlib import suppress
+from functools import partial
 
-import LegendRobot.modules.sql.welcome_sql as sql
-import LegendRobot
-from LegendRobot import (
-    DEV_USERS,
-    LOGGER,
-    OWNER_ID,
-    DRAGONS,
-    DEMONS,
-    TIGERS,
-    WOLVES,
-    dispatcher,
-    JOIN_LOGGER,
-)
-from LegendRobot.modules.helper_funcs.chat_status import (
-    is_user_ban_protected,
-    user_admin,
-)
-from LegendRobot.modules.helper_funcs.misc import build_keyboard, revert_buttons
-from LegendRobot.modules.helper_funcs.msg_types import get_welcome_type
-from LegendRobot.modules.helper_funcs.string_handling import (
-    escape_invalid_curly_brackets,
-    markdown_parser,
-)
-from LegendRobot.modules.log_channel import loggable
-from LegendRobot.modules.sql.global_bans_sql import is_user_gbanned
 from telegram import (
     ChatPermissions,
     InlineKeyboardButton,
@@ -47,6 +22,32 @@ from telegram.ext import (
     run_async,
 )
 from telegram.utils.helpers import escape_markdown, mention_html, mention_markdown
+
+import LegendRobot
+import LegendRobot.modules.sql.welcome_sql as sql
+from LegendRobot import (
+    DEMONS,
+    DEV_USERS,
+    DRAGONS,
+    JOIN_LOGGER,
+    LOGGER,
+    OWNER_ID,
+    TIGERS,
+    WOLVES,
+    dispatcher,
+)
+from LegendRobot.modules.helper_funcs.chat_status import (
+    is_user_ban_protected,
+    user_admin,
+)
+from LegendRobot.modules.helper_funcs.misc import build_keyboard, revert_buttons
+from LegendRobot.modules.helper_funcs.msg_types import get_welcome_type
+from LegendRobot.modules.helper_funcs.string_handling import (
+    escape_invalid_curly_brackets,
+    markdown_parser,
+)
+from LegendRobot.modules.log_channel import loggable
+from LegendRobot.modules.sql.global_bans_sql import is_user_gbanned
 
 VALID_WELCOME_FORMATTERS = [
     "first",
@@ -161,7 +162,6 @@ def new_member(update: Update, context: CallbackContext):
     new_members = update.effective_message.new_chat_members
 
     for new_mem in new_members:
-
         welcome_log = None
         res = None
         sent = None
@@ -170,7 +170,6 @@ def new_member(update: Update, context: CallbackContext):
         media_wel = False
 
         if should_welc:
-
             reply = update.message.message_id
             cleanserv = sql.clean_service(chat.id)
             # Clean service welcome
@@ -524,7 +523,6 @@ def left_member(update: Update, context: CallbackContext):
 
         left_mem = update.effective_message.left_chat_member
         if left_mem:
-
             # Dont say goodbyes to gbanned users
             if is_user_gbanned(left_mem.id):
                 return

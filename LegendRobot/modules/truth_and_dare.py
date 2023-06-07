@@ -1,12 +1,9 @@
-import io
-import re
-import html
-import random
 import requests
+from telegram import Update
+from telegram.ext import CallbackContext
+
 from LegendRobot import dispatcher
-from telegram import ParseMode, Update, Bot
 from LegendRobot.modules.disable import DisableAbleCommandHandler
-from telegram.ext import CallbackContext, run_async
 
 
 def truth(update: Update, context: CallbackContext):

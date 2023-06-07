@@ -1,11 +1,8 @@
 import asyncio
+
 from pyrogram import filters
-from aiohttp import ClientSession
-from Python_ARQ import ARQ
 
 from LegendRobot import pbot as app
-from LegendRobot.utils.errors import capture_err
-from LegendRobot.utils.permissions import adminsOnly
 from LegendRobot.helper_extra.dbfun import (
     alpha_to_int,
     get_karma,
@@ -16,7 +13,8 @@ from LegendRobot.helper_extra.dbfun import (
     karma_on,
     update_karma,
 )
-from LegendRobot import arq
+from LegendRobot.utils.errors import capture_err
+from LegendRobot.utils.permissions import adminsOnly
 
 regex_upvote = (
     r"^((?i)\+|\+\+|\+1|thx|thanx|thanks|thankyou|love|pro|🖤|❣️|💝|💖|💕|❤|💘|cool|good|👍)$"

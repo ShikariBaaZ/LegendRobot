@@ -1,9 +1,10 @@
 import random
 
-from LegendRobot import dispatcher
-from LegendRobot.modules.disable import DisableAbleCommandHandler
 from telegram import Update
 from telegram.ext import CallbackContext, run_async
+
+from LegendRobot import dispatcher
+from LegendRobot.modules.disable import DisableAbleCommandHandler
 
 reactions = [
     "( ͡° ͜ʖ ͡°)",

@@ -1,20 +1,12 @@
-from typing import Optional
-
-import LegendRobot.modules.sql.rules_sql as sql
-from LegendRobot import dispatcher
-from LegendRobot.modules.helper_funcs.chat_status import user_admin, connection_status
-from LegendRobot.modules.helper_funcs.string_handling import markdown_parser
-from telegram import (
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    Message,
-    ParseMode,
-    Update,
-    User,
-)
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler
 from telegram.utils.helpers import escape_markdown
+
+import LegendRobot.modules.sql.rules_sql as sql
+from LegendRobot import dispatcher
+from LegendRobot.modules.helper_funcs.chat_status import connection_status, user_admin
+from LegendRobot.modules.helper_funcs.string_handling import markdown_parser
 
 
 @connection_status

@@ -2,9 +2,9 @@ import threading
 import time
 from typing import Union
 
-from sqlalchemy import Column, String, Boolean, UnicodeText, BigInteger
+from sqlalchemy import BigInteger, Boolean, Column, String, UnicodeText
 
-from LegendRobot.modules.sql import SESSION, BASE
+from LegendRobot.modules.sql import BASE, SESSION
 
 
 class ChatAccessConnectionSettings(BASE):

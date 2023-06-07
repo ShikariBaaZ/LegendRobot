@@ -2,9 +2,6 @@ import importlib
 from typing import Union
 
 from future.utils import string_types
-from LegendRobot import dispatcher
-from LegendRobot.modules.helper_funcs.handlers import CMD_STARTERS, SpamChecker
-from LegendRobot.modules.helper_funcs.misc import is_module_loaded
 from telegram import ParseMode, Update
 from telegram.ext import (
     CallbackContext,
@@ -15,10 +12,15 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import escape_markdown
 
+from LegendRobot import dispatcher
+from LegendRobot.modules.helper_funcs.handlers import CMD_STARTERS, SpamChecker
+from LegendRobot.modules.helper_funcs.misc import is_module_loaded
+
 FILENAME = __name__.rsplit(".", 1)[-1]
 
 # If module is due to be loaded, then setup all the magical handlers
 if is_module_loaded(FILENAME):
+    from telegram.ext.dispatcher import run_async
 
     from LegendRobot.modules.helper_funcs.chat_status import (
         connection_status,
@@ -26,7 +28,6 @@ if is_module_loaded(FILENAME):
         user_admin,
     )
     from LegendRobot.modules.sql import disable_sql as sql
-    from telegram.ext.dispatcher import run_async
 
     DISABLE_CMDS = []
     DISABLE_OTHER = []
@@ -90,7 +91,6 @@ if is_module_loaded(FILENAME):
 
     class DisableAbleMessageHandler(MessageHandler):
         def __init__(self, filters, callback, friendly, **kwargs):
-
             super().__init__(filters, callback, **kwargs)
             DISABLE_OTHER.append(friendly)
             self.friendly = friendly
@@ -100,7 +100,6 @@ if is_module_loaded(FILENAME):
                 self.filters = Filters.update.messages
 
         def check_update(self, update):
-
             chat = update.effective_chat
             message = update.effective_message
             filter_result = self.filters(update)

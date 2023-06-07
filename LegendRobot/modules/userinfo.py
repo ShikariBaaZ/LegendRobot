@@ -1,43 +1,42 @@
 import html
-import re
 import os
+import re
+
 import requests
-
-from telethon.tl.functions.channels import GetFullChannelRequest
-from telethon.tl.types import ChannelParticipantsAdmins
-from telethon import events
-
 from telegram import (
     MAX_MESSAGE_LENGTH,
-    ParseMode,
-    Update,
     InlineKeyboardButton,
     InlineKeyboardMarkup,
+    ParseMode,
+    Update,
 )
+from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler
 from telegram.ext.dispatcher import run_async
-from telegram.error import BadRequest
 from telegram.utils.helpers import escape_markdown, mention_html
+from telethon import events
+from telethon.tl.functions.channels import GetFullChannelRequest
+from telethon.tl.types import ChannelParticipantsAdmins
 
+import LegendRobot.modules.sql.userinfo_sql as sql
 from LegendRobot import (
-    DEV_USERS,
-    OWNER_ID,
-    DRAGONS,
     DEMONS,
+    DEV_USERS,
+    DRAGONS,
+    INFOPIC,
+    OWNER_ID,
     TIGERS,
     WOLVES,
-    INFOPIC,
     dispatcher,
 )
+from LegendRobot import telethn as LegendTelethonClient
 from LegendRobot.__main__ import STATS, TOKEN, USER_INFO
-import LegendRobot.modules.sql.userinfo_sql as sql
 from LegendRobot.modules.disable import DisableAbleCommandHandler
-from LegendRobot.modules.sql.global_bans_sql import is_user_gbanned
-from LegendRobot.modules.sql.afk_sql import is_afk, check_afk_status
-from LegendRobot.modules.sql.users_sql import get_user_num_chats
 from LegendRobot.modules.helper_funcs.chat_status import sudo_plus
 from LegendRobot.modules.helper_funcs.extraction import extract_user
-from LegendRobot import telethn as LegendTelethonClient, TIGERS, DRAGONS, DEMONS
+from LegendRobot.modules.sql.afk_sql import check_afk_status, is_afk
+from LegendRobot.modules.sql.global_bans_sql import is_user_gbanned
+from LegendRobot.modules.sql.users_sql import get_user_num_chats
 
 
 def no_by_per(totalhp, percentage):
@@ -64,7 +63,6 @@ def hpmanager(user):
     total_hp = (get_user_num_chats(user.id) + 10) * 10
 
     if not is_user_gbanned(user.id):
-
         # Assign new var `new_hp` since we need `total_hp` in
         # end to calculate percentage.
         new_hp = total_hp
@@ -131,9 +129,7 @@ def get_id(update: Update, context: CallbackContext):
     user_id = extract_user(msg, args)
 
     if user_id:
-
         if msg.reply_to_message and msg.reply_to_message.forward_from:
-
             user1 = message.reply_to_message.from_user
             user2 = message.reply_to_message.forward_from
 
@@ -145,7 +141,6 @@ def get_id(update: Update, context: CallbackContext):
             )
 
         else:
-
             user = bot.get_chat(user_id)
             msg.reply_text(
                 f"{html.escape(user.first_name)}'s ɪᴅ ɪs <code>{user.id}</code>.",
@@ -153,7 +148,6 @@ def get_id(update: Update, context: CallbackContext):
             )
 
     else:
-
         if chat.type == "private":
             msg.reply_text(
                 f"ʏᴏᴜʀ ᴜsᴇʀ ɪᴅ ɪs <code>{chat.id}</code>.", parse_mode=ParseMode.HTML

@@ -1,7 +1,8 @@
 from enum import IntEnum, unique
 
-from LegendRobot.modules.helper_funcs.string_handling import button_markdown_parser
 from telegram import Message
+
+from LegendRobot.modules.helper_funcs.string_handling import button_markdown_parser
 
 
 @unique
@@ -165,7 +166,6 @@ def get_welcome_type(msg: Message):
 
 
 def get_filter_type(msg: Message):
-
     if not msg.reply_to_message and msg.text and len(msg.text.split()) >= 3:
         content = None
         text = msg.text.split(None, 2)[2]

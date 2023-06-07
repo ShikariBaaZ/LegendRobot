@@ -1,18 +1,7 @@
 import html
-from typing import Optional, List
 import re
 
-from telegram import Message, Chat, Update, User, ChatPermissions
-
-from LegendRobot import TIGERS, WOLVES, dispatcher
-from LegendRobot.modules.helper_funcs.chat_status import (
-    bot_admin,
-    is_user_admin,
-    user_admin,
-    user_admin_no_reply,
-)
-from LegendRobot.modules.log_channel import loggable
-from LegendRobot.modules.sql import antiflood_sql as sql
+from telegram import ChatPermissions, Update
 from telegram.error import BadRequest
 from telegram.ext import (
     CallbackContext,
@@ -22,10 +11,20 @@ from telegram.ext import (
     MessageHandler,
     run_async,
 )
-from telegram.utils.helpers import mention_html, escape_markdown
-from LegendRobot.modules.helper_funcs.string_handling import extract_time
+from telegram.utils.helpers import mention_html
+
+from LegendRobot import TIGERS, WOLVES, dispatcher
 from LegendRobot.modules.connection import connected
 from LegendRobot.modules.helper_funcs.alternate import send_message
+from LegendRobot.modules.helper_funcs.chat_status import (
+    bot_admin,
+    is_user_admin,
+    user_admin,
+    user_admin_no_reply,
+)
+from LegendRobot.modules.helper_funcs.string_handling import extract_time
+from LegendRobot.modules.log_channel import loggable
+from LegendRobot.modules.sql import antiflood_sql as sql
 from LegendRobot.modules.sql.approve_sql import is_approved
 
 FLOOD_GROUP = 3
