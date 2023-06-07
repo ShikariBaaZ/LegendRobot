@@ -1,7 +1,8 @@
 import threading
 
-from LegendRobot.modules.sql import BASE, SESSION
 from sqlalchemy import Column, String, UnicodeText
+
+from LegendRobot.modules.sql import BASE, SESSION
 
 
 class BlacklistUsers(BASE):
