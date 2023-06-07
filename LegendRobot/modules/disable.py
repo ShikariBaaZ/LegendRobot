@@ -19,7 +19,6 @@ FILENAME = __name__.rsplit(".", 1)[-1]
 
 # If module is due to be loaded, then setup all the magical handlers
 if is_module_loaded(FILENAME):
-
     from LegendRobot.modules.helper_funcs.chat_status import (
         connection_status,
         is_user_admin,
@@ -90,7 +89,6 @@ if is_module_loaded(FILENAME):
 
     class DisableAbleMessageHandler(MessageHandler):
         def __init__(self, filters, callback, friendly, **kwargs):
-
             super().__init__(filters, callback, **kwargs)
             DISABLE_OTHER.append(friendly)
             self.friendly = friendly
@@ -100,7 +98,6 @@ if is_module_loaded(FILENAME):
                 self.filters = Filters.update.messages
 
         def check_update(self, update):
-
             chat = update.effective_chat
             message = update.effective_message
             filter_result = self.filters(update)
